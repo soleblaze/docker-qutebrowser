@@ -13,6 +13,7 @@ ENV TZ="America/Chicago"
 RUN apt-get update && apt-get full-upgrade \
   && apt-get install -y \
   fonts-dejavu \
+  python3-pip \
   qtwayland5 \
   qutebrowser \
   && rm -rf /var/lib/apt/lists/* \
@@ -25,6 +26,10 @@ RUN groupadd qb \
 
 USER qb
 WORKDIR /home/qb
+
+RUN pip install "pinboard>=2.0"
+
 ENV QT_QPA_PLATFORM=wayland
 ENV QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+ENV PATH="$PATH:/home/qb/.local/bin"
 ENTRYPOINT [ "qutebrowser" ]

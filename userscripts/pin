@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+if [ "$1" = "add" ]; then
+	shift 1
+	echo "message-info \"Pinboard - Saving: $QUTE_URL[0,60]...\"" >>$QUTE_FIFO
+	results=$(pinboard add --title "$QUTE_TITLE" --url "$QUTE_URL" --read --tags $* | jq -r '.result_code')
+	echo "message-info \"Pinboard - Result: $results\"" >>$QUTE_FIFO
+elif [ "$1" = "readLater" ]; then
+	shift 1
+	echo "message-info \"Pinboard - Saving: $QUTE_URL[0,60]... Tags: $*\"" >>$QUTE_FIFO
+	results=$(pinboard add --title "$QUTE_TITLE" --url "$QUTE_URL" --unread --tags $* | jq -r '.result_code')
+	echo "message-info \"Pinboard - Result: $results\"" >>$QUTE_FIFO
+fi

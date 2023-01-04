@@ -16,5 +16,6 @@ docker run \
 	-v "$HOME/.local/share/qb/config":/home/qb/.config/qutebrowser \
 	-v "$HOME/.local/share/qb/share":/home/qb/.local/share/qutebrowser \
 	-v "$HOME/Downloads":/home/qb/Downloads \
+	-v "$HOME/.pinboardrc":/home/qb/.pinboardrc \
 	--rm \
 	ghcr.io/soleblaze/qutebrowser:main
