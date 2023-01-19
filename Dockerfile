@@ -16,6 +16,7 @@ RUN apt-get update && apt-get full-upgrade \
   python3-pip \
   qtwayland5 \
   qutebrowser \
+  pulseaudio \
   && rm -rf /var/lib/apt/lists/* \
   && apt-get autoremove -y \
   && apt-get autoclean
