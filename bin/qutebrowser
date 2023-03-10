@@ -7,7 +7,6 @@ else
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v discordSettings:/home/discord \
     --device /dev/hidraw1 \
-    --device /dev/hidraw2 \
     -v /dev/shm:/dev/shm:z \
     -v /var/run/dbus:/var/run/dbus \
     -v "/var/run/user/$(id -u)/bus:/var/run/user/1000/bus" \

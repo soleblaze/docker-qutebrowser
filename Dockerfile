@@ -10,7 +10,7 @@ RUN apt-get update && \
 ENV TZ="America/Chicago"
 
 
-RUN apt-get update && apt-get full-upgrade \
+RUN apt-get update && apt-get -y full-upgrade \
   && apt-get install -y \
   fonts-dejavu \
   python3-pip \
